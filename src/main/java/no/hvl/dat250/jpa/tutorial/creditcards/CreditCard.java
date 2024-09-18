@@ -1,6 +1,7 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import jakarta.persistence.*;
 
@@ -15,13 +16,21 @@ public class CreditCard {
     private Integer balance;
 
     @ManyToMany(mappedBy = "creditCards")
-    Collection<Customer> owners;
+    Collection<Customer> owners = new HashSet<>();
 
     @ManyToOne
     Bank bank;
 
     @ManyToOne
     Pincode pincode;
+
+    public CreditCard(){}
+
+    public CreditCard(Integer number, Integer creditLimit, Integer balance){
+      this.number = number;
+      this.creditLimit = creditLimit;
+      this.balance = balance;
+    }
 
     public Integer getNumber() {
       return this.number;
@@ -39,7 +48,27 @@ public class CreditCard {
       return this.pincode;
     }
 
+    public void setPincode(Pincode pincode) {
+      this.pincode = pincode;
+    }
+
+    public void setBank(Bank bank){
+      this.bank = bank;
+    }
+
     public Bank getOwningBank() {
       return this.bank;
+    }
+
+    @Override
+    public String toString() {
+      return "CreditCard{" +
+        "id=" + id +
+        ", number=" + number +
+        ", creditLimit=" + creditLimit +
+        ", balance=" + balance +
+        ", bank=" + (bank != null ? bank.getName() : "N/A") +  // Assuming Bank has a getName() method
+        ", pincode=" + (pincode != null ? pincode.getCode() : "N/A") +  // Assuming Pincode has a getCode() method
+        '}';
     }
 }

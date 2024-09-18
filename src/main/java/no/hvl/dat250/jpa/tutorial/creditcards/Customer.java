@@ -1,6 +1,9 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,11 +15,11 @@ public class Customer {
 
     @ManyToMany
     @JoinTable(
-      name = "customer_adress",
+      name = "customer_address",
       joinColumns = @JoinColumn(name="customer_id"),
       inverseJoinColumns = @JoinColumn(name = "address_id")
     )
-    private Collection<Address> addresses;
+    private Collection<Address> addresses = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -24,9 +27,14 @@ public class Customer {
       joinColumns = @JoinColumn(name = "customer_id"),
       inverseJoinColumns = @JoinColumn(name="creditcard_id")
     )
-    private Collection<CreditCard> creditCards;
-    
-    
+
+    private Collection<CreditCard> creditCards = new ArrayList<>();
+
+    public Customer(){}
+
+    public Customer(String name){
+      this.name = name;
+    }
 
     public String getName() {
       return this.name;

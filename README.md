@@ -33,7 +33,7 @@ public class Family {
   private String description;
 
   @OneToMany(mappedBy = "family")
-  private final List<Person> members = new ArrayList<>();
+  private final List<Person> members = new HashSet<>();
   
   // getters and setters
 

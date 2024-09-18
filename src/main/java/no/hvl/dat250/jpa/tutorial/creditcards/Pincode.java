@@ -1,6 +1,7 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import jakarta.persistence.*;
 
@@ -15,7 +16,14 @@ public class Pincode {
     private Integer count;
 
     @OneToMany(mappedBy = "pincode")
-    Collection<CreditCard> creditCards;
+    Collection<CreditCard> creditCards = new HashSet<>();
+
+    public Pincode(){}
+
+    public Pincode(String pincode, Integer count){
+      this.pincode = pincode;
+      this.count = count;
+    }
 
     public Long getId() {
         return id;
