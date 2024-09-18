@@ -1,5 +1,7 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
+import java.util.Collection;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -8,29 +10,36 @@ public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Integer number;
+    private Integer creditLimit;
+    private Integer balance;
+
+    @ManyToMany(mappedBy = "creditCards")
+    Collection<Customer> owners;
+
+    @ManyToOne
+    Bank bank;
+
+    @ManyToOne
+    Pincode pincode;
 
     public Integer getNumber() {
-        // TODO: implement method!
-        return null;
+      return this.number;
     }
 
     public Integer getBalance() {
-        // TODO: implement method!
-        return null;
+      return this.balance;
     }
 
     public Integer getCreditLimit() {
-        // TODO: implement method!
-        return null;
+      return this.creditLimit;
     }
 
     public Pincode getPincode() {
-        // TODO: implement method!
-        return null;
+      return this.pincode;
     }
 
     public Bank getOwningBank() {
-        // TODO: implement method!
-        return null;
+      return this.bank;
     }
 }
