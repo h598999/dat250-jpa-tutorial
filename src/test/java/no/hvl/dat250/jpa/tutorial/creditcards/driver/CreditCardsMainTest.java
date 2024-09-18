@@ -1,5 +1,4 @@
 // package no.hvl.dat250.jpa.tutorial.creditcards.driver;
-//
 // import no.hvl.dat250.jpa.tutorial.creditcards.*;
 //
 //
