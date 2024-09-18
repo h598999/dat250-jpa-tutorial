@@ -27,18 +27,10 @@ public class Person {
   @ManyToOne
   private Family family;
 
-  // @Transient
-  // private String nonsenseField = "";
-
   @OneToMany
   private List<Job> jobList = new ArrayList<>();
 
-  public Person(String firstName, String lastName, Family family, List<Job> jobList){
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.family = family;
-    this.jobList = jobList;
-  }
+  public Person(){}
 
   public Long getId() {
     return id;

@@ -20,13 +20,9 @@ public class Family {
   private String description;
 
   @OneToMany(mappedBy = "family")
-  private final List<Person> memebers = new ArrayList<>();
+  private final List<Person> members = new ArrayList<>();
 
   public Family(){}
-
-  public Family(String description){
-    this.description = description;
-  }
 
   public Long getId() {
     return id;
@@ -44,7 +40,7 @@ public class Family {
     this.description = description;
   }
 
-  public List<Person> getMemebers() {
-    return memebers;
+  public List<Person> getMembers() {
+    return members;
   }
 }

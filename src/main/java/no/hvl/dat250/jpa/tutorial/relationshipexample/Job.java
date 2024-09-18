@@ -17,11 +17,6 @@ public class Job {
   private double salary;
   private String jobDescr;
 
-  public Job(double salary, String jobDescr){
-    this.salary = salary;
-    this.jobDescr = jobDescr;
-  }
-
   public Long getId() {
     return id;
   }
