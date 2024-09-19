@@ -1,6 +1,5 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -28,7 +27,7 @@ public class Customer {
       inverseJoinColumns = @JoinColumn(name="creditcard_id")
     )
 
-    private Collection<CreditCard> creditCards = new ArrayList<>();
+    private Collection<CreditCard> creditCards = new HashSet<>();
 
     public Customer(){}
 
