@@ -19,7 +19,7 @@ Further on in the CreditCardMainTest i kept getting an error in these lines:
 
 ```
 Even though the contents of the two collections were excactly the same i kept getting errors. I think this is because when the
-Set.of(), method is used it creates an immutable list. Then when comparing that list to an mutable list like
+Set.of() method is used it creates an immutable list. Then when comparing that list to a mutable list like
 those found in adress.getOwners() and bank.getOwnedCards() it would return false even though the contents of
 the list were excactly the same. Therefore i changed those test lines with these:
  
