@@ -32,11 +32,13 @@ public class CreditCardsMain {
     Bank b = new Bank("Pengebank");
 
     c.getAddresses().add(a);
+
     c.getCreditCards().add(ca);
     c.getCreditCards().add(ca2);
 
     ca.setPincode(p);
     ca.setBank(b);
+
     ca2.setPincode(p);
     ca2.setBank(b);
     

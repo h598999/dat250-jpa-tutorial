@@ -8,9 +8,6 @@ import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -45,6 +42,9 @@ public class CreditCardsMainTest {
         Address address = customer.getAddresses().iterator().next();
 
         //This is a bad test?
+        // Because the equals will not be true if adress.getOwners() is not immutable
+        // Even though the contents of both Collections are excactly the same
+        // and i dont think it is wanted for adress.getOwners() to be immutable.
         // assertEquals(address.getOwners(), Set.of(customer));
         // Could this be better?
         assertTrue(address.getOwners().contains(customer));
