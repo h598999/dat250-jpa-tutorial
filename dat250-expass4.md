@@ -18,6 +18,7 @@ Further on in the CreditCardMainTest i kept getting an error in these lines:
 
 
 ```
+
 Even though the contents of the two collections were excactly the same i kept getting errors. I think this is because when the
 Set.of() method is used it creates an immutable list. Then when comparing that list to a mutable list like
 those found in adress.getOwners() and bank.getOwnedCards() it would return false even though the contents of
@@ -51,7 +52,6 @@ I inspected the database using an h2 driver and Intellij. I created a datasource
 H2 driver i was able to inspect the database and perform SQL queries towards it.
 
 ![expass4.png](expass4.png)
-
 
 ![CreditcardDB.png](CreditcardDB.png)
 
@@ -140,5 +140,3 @@ CREATE TABLE CUSTOMER_CREDITCARD
 ```
 ## Non resolved problems
 None
-
-

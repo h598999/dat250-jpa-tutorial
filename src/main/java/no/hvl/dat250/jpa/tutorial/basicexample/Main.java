@@ -12,7 +12,6 @@ public class Main {
 
   public static void main(String[] args) {
 
-
     try (
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-tutorial");
             EntityManager em = factory.createEntityManager()) {
